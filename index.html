@@ -1,13 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Refresh" content="0; url='https://www.moomootools.github.io/home'" />
-    <title></title>
+    <title>Moo's Tools | Home</title>
+    <meta name="description" content="It has all of my working tools!!!!!!!!">
+    <style>
+        body {
+            background: url('/image/galaxy.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .black-box {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .tool {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .tool img {
+            max-width: 100px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+
+        .view-button {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+
+        .disabled-link {
+            pointer-events: none;
+        }
+
+        .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+/* CSS to hide the scrollbar when the popup is shown */
+body.popup-open {
+    overflow: hidden;
+}
+
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+    </style>
 </head>
+
 <body>
-    <h1>Not being redirected?</h1>
-    <a href="https://www.moomootools.github.io/home">Click Here<a>
+    <div class="black-box">
+        <h1>Moo's Tools</h1>
+        <div class="tool">
+            <img src="/image/teto.jpg" alt="Teto" onerror="this.src='/image/noimage.png';">
+            <div>
+                <h2>Teto</h2>
+                <p>Teto is a powerful tool used for network security.</p>
+                <a class="view-button" href="http://adfoc.us/81970097247492">View</a>
+            </div>
+        </div>
+        <div class="tool">
+            <img src="/image/main.ico" alt="URLD" onerror="this.src='/image/noimage.png';">
+            <div>
+                <h2>URL Downloader</h2>
+                <p>URL Downloader is a safe and fast file downloader!</p>
+                <a class="view-button" href="http://adfoc.us/8197001">View</a>
+            </div>
+        </div>
+        <div class="tool">
+            <img src="path/to/tool3-image.jpg" alt="OwnPresence" onerror="this.src='/image/noimage.png';">
+            <div>
+                <h2>OwnPresence</h2>
+                <p>OwnPresence is used to change your discord presence</p>
+                <a class="view-button" style="pointer-events: none;">View</a>
+            </div>
+        </div>
+            </a>
+        </div>
+    </div>
+
+    <div id="cookie-popup" class="popup">
+        <div class="popup-content">
+            <h3>We use cookies on this website</h3>
+            <p>This website uses cookies to ensure you get the best experience on our website.</p>
+            <button id="accept-cookies">Accept</button>
+        </div>
+    </div>
+
+    
+
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const cookiePopup = document.getElementById("cookie-popup");
+    const acceptButton = document.getElementById("accept-cookies");
+
+    if (!localStorage.getItem("cookiesAccepted")) {
+        cookiePopup.style.display = "flex";
+        document.body.classList.add("popup-open");
+    }
+
+    acceptButton.addEventListener("click", function() {
+        cookiePopup.style.display = "none";
+        document.body.classList.remove("popup-open");
+
+        localStorage.setItem("cookiesAccepted", "true");
+    });
+});
+
+    </script>
 </body>
-</html>
