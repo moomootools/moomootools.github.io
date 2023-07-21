@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moo's Tools | YT to MPs</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('/image/galaxy.jpg') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .black-box {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .black-box input[type="text"] {
+      width: 300px;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #f7f7f7;
+      color: #333;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease-in-out;
+      margin: 10px 0;
+    }
+
+    .view-button {
+      background-color: #ffffff;
+      color: #000000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      margin: 10px 5px;
+    }
+
+    .view-button:hover {
+      background-color: #f5f5f5;
+    }
+
+    .view-button:focus {
+      outline: none;
+    }
+
+    .content-box img {
+      max-width: 200px;
+      border-radius: 10px;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="black-box">
+    <h1>Moo's Tools</h1>
+    <h1>Youtobe MP4 & MP3 Converter</h1>
+    <p style="color: red;">Note: This does not work as i havent set up a server in python for now use <a href="https://y2tmate.tools" style="color: red;">y2tmate</a> as its really good!</p>
+    <input type="text" id="youtubeUrl" placeholder="Enter YouTube URL">
+    <button onclick="convertToMP3()" class="view-button">Convert to MP3</button>
+    <button onclick="convertToMP4()" class="view-button">Convert to MP4</button>
+    <a href="https://moomootools.github.io/"><button class="view-button">Go Back</button></a>
+  </div>
+  
+
+  <script>
+    function convertToMP3() {
+      const youtubeUrl = document.getElementById("youtubeUrl").value;
+      if (!youtubeUrl) {
+        alert("Please enter a valid YouTube URL.");
+        return;
+      }
+
+      fetch(`http://your-server-url/convert?type=mp3&url=${encodeURIComponent(youtubeUrl)}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            window.location.href = data.downloadLink;
+          } else {
+            alert("Conversion failed. Please try again later.");
+          }
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          alert("An error occurred during conversion. Please try again later.");
+        });
+    }
+
+    function convertToMP4() {
+      const youtubeUrl = document.getElementById("youtubeUrl").value;
+      if (!youtubeUrl) {
+        alert("Please enter a valid YouTube URL.");
+        return;
+      }
+
+      fetch(`http://your-server-url/convert?type=mp4&url=${encodeURIComponent(youtubeUrl)}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            window.location.href = data.downloadLink;
+          } else {
+            alert("Conversion failed. Please try again later.");
+          }
+        })
+        .catch(error => {
+          console.error("Error:", error);
+          alert("An error occurred during conversion. Please try again later.");
+        });
+    }
+  </script>
+</body>
+
+</html>
