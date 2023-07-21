@@ -72,7 +72,7 @@
   <div class="black-box">
     <h1>Moo's Tools</h1>
     <h1>Youtobe MP4 & MP3 Converter</h1>
-    <p style="color: red;">Note: This does not work as i havent set up a server in python for now use <a href="https://y2tmate.tools" style="color: red;">y2tmate</a> as its really good!</p>
+    <p style="color: red;">Note: This does not work as i havent set up a server in python for now use <a href="http://adfoc.us/81970097252835" style="color: red;">y2tmate</a> as its really good!</p>
     <input type="text" id="youtubeUrl" placeholder="Enter YouTube URL">
     <button onclick="convertToMP3()" class="view-button">Convert to MP3</button>
     <button onclick="convertToMP4()" class="view-button">Convert to MP4</button>
@@ -88,7 +88,7 @@
         return;
       }
 
-      fetch(`http://your-server-url/convert?type=mp3&url=${encodeURIComponent(youtubeUrl)}`)
+      fetch(`http://moomootools.github.io/convert?type=mp3&url=${encodeURIComponent(youtubeUrl)}`)
         .then(response => response.json())
         .then(data => {
           if (data.success) {
@@ -110,7 +110,7 @@
         return;
       }
 
-      fetch(`http://your-server-url/convert?type=mp4&url=${encodeURIComponent(youtubeUrl)}`)
+      fetch(`http://moomootools.github.io/convert?type=mp4&url=${encodeURIComponent(youtubeUrl)}`)
         .then(response => response.json())
         .then(data => {
           if (data.success) {
